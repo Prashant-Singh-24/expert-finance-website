@@ -7,6 +7,9 @@ import Carousel from "../components/Carousel";
 import BankLogos from "../components/BankLogos";
 import BankMarquee from "../components/BankMarquee";
 import ClientIntro from "../components/ClientIntro";
+import TrustedAdvisorsBanner from "../components/TrustedAdvisorsBanner";
+import AboutHomeSection from "../components/AboutHomeSection";
+import ServicesShowcase from "../components/ServicesShowcase";
 
 function Home() {
   const navigate = useNavigate();
@@ -14,10 +17,15 @@ function Home() {
   return (
     <>
       <Hero />
-      {/* BANK LOGO MARQUEE JUST UNDER THE BANNER */}
+
       <BankMarquee />
-      {/* NEW: video + message section */}
+
       <ClientIntro />
+
+      <AboutHomeSection />
+
+      <TrustedAdvisorsBanner />
+      <ServicesShowcase />
 
       {/* WHY SECTION */}
       <section className="section">
@@ -54,7 +62,9 @@ function Home() {
       <section className="section">
         <div className="section-header">
           <span className="section-kicker">Real-life scenarios</span>
-          <h2 className="section-title">See how we can help in your situation</h2>
+          <h2 className="section-title">
+            See how we can help in your situation
+          </h2>
           <p className="section-subtitle">
             Every client story is different. Explore a few common journeys we
             see every week — from first home buyers to seasoned investors.
@@ -105,7 +115,9 @@ function Home() {
       <section className="section">
         <div className="section-header">
           <span className="section-kicker">Picture your next step</span>
-          <h2 className="section-title">Home, investment, or business — your choice</h2>
+          <h2 className="section-title">
+            Home, investment, or business — your choice
+          </h2>
           <p className="section-subtitle">
             Browse a few examples of what clients come to us for. Each plan is
             customised around real numbers, real timelines, and real goals.
@@ -116,19 +128,22 @@ function Home() {
           <div className="image-strip-item">
             <div className="image-strip-photo image-strip-photo-1" />
             <div className="image-strip-caption">
-              Buy your first home with confidence, knowing exactly what you can afford.
+              Buy your first home with confidence, knowing exactly what you can
+              afford.
             </div>
           </div>
           <div className="image-strip-item">
             <div className="image-strip-photo image-strip-photo-2" />
             <div className="image-strip-caption">
-              Restructure or refinance your current lending to free up cash-flow.
+              Restructure or refinance your current lending to free up
+              cash-flow.
             </div>
           </div>
           <div className="image-strip-item">
             <div className="image-strip-photo image-strip-photo-3" />
             <div className="image-strip-caption">
-              Grow a long-term investment portfolio or finance your business plans.
+              Grow a long-term investment portfolio or finance your business
+              plans.
             </div>
           </div>
         </div>
@@ -141,8 +156,8 @@ function Home() {
           <h2 className="section-title">Check your repayments in minutes</h2>
           <p className="section-subtitle">
             Use our quick calculator to see how different loan amounts, terms,
-            and interest rates affect your repayments — then talk to us to fine-tune
-            a plan.
+            and interest rates affect your repayments — then talk to us to
+            fine-tune a plan.
           </p>
         </div>
 

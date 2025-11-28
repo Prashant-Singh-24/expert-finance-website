@@ -187,13 +187,6 @@ a {
   text-align: center;        /* center text */
 }
 
-.section-kicker {
-  text-transform: uppercase;
-  font-size: 20px;           /* slightly bigger */
-  letter-spacing: 0.18em;
-  color: #ffffff;
-  font-weight: 700;
-}
 
 .section-title {
   font-size: clamp(26px, 3vw, 32px);   /* bigger main heading */
@@ -866,38 +859,35 @@ textarea {
   }
 }
 
-/* === Advisor video banner section === */
+/* === Advisor video banner + client review carousel === */
 
 .video-banner-section {
   position: relative;
   width: 100%;
   overflow: hidden;
-  margin-top: 24px;
+  margin: 0px;
 }
 
-/* Background video */
 .video-banner {
   width: 100%;
   height: 100%;
-  min-height: 260px;         /* LinkedIn banner style: wide & not too tall */
+  min-height: 260px;
   max-height: 360px;
   object-fit: cover;
   display: block;
 }
 
-/* Dark overlay to make text readable */
 .video-banner-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    90deg,
-    rgba(15, 23, 42, 0.85),
-    rgba(15, 23, 42, 0.4),
-    rgba(15, 23, 42, 0.85)
-  );
+    120deg,
+    rgba(14, 43, 105, 0.95),
+    rgba(14, 43, 105, 0.95),
+    rgba(14, 43, 105, 0.95),
+      );
 }
 
-/* Text container on top of video */
 .video-banner-content {
   position: absolute;
   inset: 0;
@@ -913,45 +903,104 @@ textarea {
   text-align: center;
 }
 
-/* Heading and text */
+/* override kicker colour inside this banner */
+.video-banner-inner .section-kicker {
+  color: #ffffff;
+}
+
 .video-banner-title {
   font-size: clamp(22px, 2.6vw, 28px);
   font-weight: 700;
-  margin: 6px 0 8px;
+  margin: 6px 0 14px;
   color: #ffffff;
 }
 
-.video-banner-text {
-  font-size: 14px;
-  margin: 0 0 8px;
-  max-width: 720px;
-  margin-left: auto;
-  margin-right: auto;
-  color: #ffffff;
+/* === Review carousel inside advisor video banner === */
+
+.review-carousel {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 14px;
 }
 
-.video-banner-list {
-  list-style: disc;
-  padding-left: 20px;
-  margin: 6px auto 8px;
-  max-width: 620px;
+.review-window {
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+}
+
+/* 3 cards side-by-side on desktop, 1 on mobile */
+.review-track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+/* Individual review cards */
+.review-card {
+  background: rgba(15, 23, 42, 0.55);
+  border-radius: 18px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.45);
   text-align: left;
-  font-size: 14px;
   color: #ffffff;
+
+  /* subtle slide/fade animation when cards change */
+  animation: review-slide-in 0.6s ease;
 }
 
-.video-banner-list li {
-  margin-bottom: 4px;
+.review-stars {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #fde68a;
 }
 
-.video-banner-signoff {
+.review-text {
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+
+.review-name {
   font-size: 13px;
   font-weight: 600;
-  margin: 4px 0 12px;
-  color: #ffffff;
+  margin-bottom: 2px;
 }
 
-/* Google Maps review button */
+.review-tag {
+  font-size: 12px;
+  color: #e5e7eb;
+}
+
+/* Slide-in animation */
+@keyframes review-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive – stack cards on small screens */
+@media (max-width: 768px) {
+  .review-track {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .review-card {
+    padding: 12px 12px;
+  }
+
+  .review-text {
+    font-size: 13px;
+  }
+}
+
+/* Google Maps CTA button */
+
 .video-banner-link {
   display: inline-flex;
   align-items: center;
@@ -959,7 +1008,7 @@ textarea {
   padding: 8px 20px;
   border-radius: 999px;
   border: none;
-  background: linear-gradient(90deg, #2563eb, #1d4ed8); /* same vibe as CTA */
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
   color: #ffffff;
   font-size: 13px;
   text-decoration: none;
@@ -970,29 +1019,337 @@ textarea {
 .video-banner-link:hover {
   transform: translateY(-1px);
   box-shadow: 0 14px 30px rgba(15, 23, 42, 0.45);
-  opacity: 0.95;
+  opacity: 0.96;
 }
 
 /* Responsive tweaks */
+
 @media (max-width: 768px) {
   .video-banner-content {
     align-items: center;
     padding: 20px 12px;
   }
 
+  .review-card {
+    padding: 14px 14px;
+  }
+
   .video-banner-title {
     font-size: 20px;
   }
 
-  .video-banner-text {
+  .review-text {
+    font-size: 13px;
+  }
+}
+
+/* === Trusted Advisors video banner === */
+
+.about-video-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.about-video {
+  width: 100%;
+  height: auto;
+  min-height: 500px;
+  max-height: 500px;
+  object-fit: cover;
+  display: block;
+}
+
+.about-video-overlay {
+  position: absolute;
+  inset: 0;
+  /* Make this semi-transparent so the video is visible */
+  background: linear-gradient(
+    120deg,
+    rgba(15, 23, 42, 0.7),
+    rgba(15, 23, 42, 0.35),
+    rgba(15, 23, 42, 0.7)
+  );
+}
+
+.about-video-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 16px;
+}
+
+.about-video-inner {
+  max-width: 900px;
+  color: #ffffff;
+  text-align: center;
+}
+
+.about-video-title {
+  font-size: clamp(22px, 2.6vw, 28px);
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.about-video-text {
+  font-size: 14px;
+  margin: 0 0 8px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #f9fafb;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .about-video-content {
+    padding: 22px 12px;
+  }
+
+  .about-video-title {
+    font-size: 20px;
+  }
+
+  .about-video-text {
     font-size: 13px;
   }
 
-  .video-banner-list {
-    font-size: 13px;
-  }
-
-  .video-banner {
+  .about-video {
     min-height: 240px;
+  }
+}
+
+/* === Home About Us section === */
+
+.about-home-section {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.about-home-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+}
+
+.about-home-text {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  justify-content: center;
+  height: 100%;
+}
+
+.about-home-points {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+
+.about-home-point h3 {
+  font-size: 15px;
+  margin: 0 0 4px;
+}
+
+.about-home-point p {
+  font-size: 14px;
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* Right card with visual + stats */
+
+.about-home-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-home-photo {
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.about-home-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 400px;      
+  object-fit: cover;
+}
+.about-home-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.about-home-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.about-home-stat-number {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.about-home-stat-label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .about-home-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .about-home-card {
+    order: -1; /* show the visual card above text on mobile, optional */
+  }
+}
+
+/* === Our Services animated cards === */
+
+.services-section {
+  padding-top: 36px;
+  padding-bottom: 40px;
+}
+
+.services-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin-top: 8px;
+}
+
+.services-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 16px 18px;
+  width: 260px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
+}
+
+.services-card-center {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 2;
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.18);
+}
+
+.services-card-side {
+  transform: scale(0.9);
+  opacity: 0.75;
+  z-index: 1;
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+}
+
+.services-card-left {
+  transform: translateX(-20px) scale(0.9);
+}
+
+.services-card-right {
+  transform: translateX(20px) scale(0.9);
+}
+
+/* Content styling */
+
+.services-card-icon {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.services-card-category {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.services-card-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.services-card-subtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Slide-in animation for active card */
+
+.services-slide-in-left {
+  animation: services-slide-left 0.45s ease;
+}
+
+.services-slide-in-right {
+  animation: services-slide-right 0.45s ease;
+}
+
+@keyframes services-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-35px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes services-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(35px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+/* Responsive – stack / focus centre card */
+
+@media (max-width: 900px) {
+  .services-carousel {
+    gap: 10px;
+  }
+
+  .services-card {
+    width: 220px;
+    padding: 14px 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-carousel {
+    gap: 0;
+  }
+
+  .services-card-side {
+    display: none; /* only show active card on very small screens */
+  }
+
+  .services-card-center {
+    width: 100%;
   }
 }
