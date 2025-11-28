@@ -47,7 +47,7 @@ function BankMarquee() {
   return (
     <section className="bank-marquee-section">
       <div className="bank-marquee-label">
-        Lenders & insurers we work with
+        Access to popular New Zealand banks & lenders
       </div>
 
       <div className="bank-marquee">
