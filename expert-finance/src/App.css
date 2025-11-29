@@ -1353,3 +1353,135 @@ textarea {
     width: 100%;
   }
 }
+
+/* === Loan Services continuous loop – FULL WIDTH === */
+
+.loan-services-section {
+  padding: 40px 0;
+  width: 100vw;        /* full viewport width */
+  max-width: none;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Make sure the generic .section centering doesn't constrain this one */
+.section.loan-services-section {
+  max-width: none;
+  margin: 0;
+}
+
+/* The loop now spans the entire viewport */
+.loan-loop-wrapper {
+  position: relative;
+  width: 100vw;
+  margin: 10px 0 0;
+  overflow: hidden;
+}
+
+/* Pause animation on hover anywhere on the loop */
+.loan-loop-wrapper:hover .loan-loop-track {
+  animation-play-state: paused;
+}
+
+/* Moving track */
+.loan-loop-track {
+  display: flex;
+  width: max-content;
+  animation: loan-loop-scroll 35s linear infinite;
+}
+
+/* BIG, full-size cards in the loop */
+.loan-loop-card {
+  display: flex;
+  flex: 0 0 640px;         /* bigger cards so nothing feels cramped */
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  margin-right: 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+/* Pop-up effect on hover */
+.loan-loop-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
+}
+
+/* IMAGE – show full image, don't cut it */
+.loan-card-image {
+  flex: 0 0 50%;          /* half the card width for image */
+}
+
+.loan-card-image img {
+  width: 100%;
+  height: auto;           /* let the image decide the height */
+  display: block;
+  object-fit: contain;    /* no cropping – full image stays visible */
+}
+
+/* TEXT SIDE */
+.loan-card-content {
+  flex: 1;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.loan-card-tag {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.loan-card-title {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.loan-card-description {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0 0 8px;
+}
+
+.loan-card-link {
+  margin-top: auto;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.loan-card-link:hover {
+  text-decoration: underline;
+}
+
+/* Loop animation – cards move from left to right */
+@keyframes loan-loop-scroll {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .loan-loop-card {
+    flex: 0 0 520px;
+  }
+}
+
+@media (max-width: 640px) {
+  .loan-loop-card {
+    flex: 0 0 360px;
+  }
+}

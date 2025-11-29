@@ -10,6 +10,10 @@ import ClientIntro from "../components/ClientIntro";
 import TrustedAdvisorsBanner from "../components/TrustedAdvisorsBanner";
 import AboutHomeSection from "../components/AboutHomeSection";
 import ServicesShowcase from "../components/ServicesShowcase";
+import LoanServicesSection from "../components/LoanServicesSection";
+
+
+
 
 function Home() {
   const navigate = useNavigate();
@@ -25,6 +29,8 @@ function Home() {
       <AboutHomeSection />
 
       <TrustedAdvisorsBanner />
+      <LoanServicesSection />
+     
       <ServicesShowcase />
 
       {/* WHY SECTION */}
