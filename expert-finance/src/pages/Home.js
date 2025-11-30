@@ -11,6 +11,9 @@ import TrustedAdvisorsBanner from "../components/TrustedAdvisorsBanner";
 import AboutHomeSection from "../components/AboutHomeSection";
 import ServicesShowcase from "../components/ServicesShowcase";
 import LoanServicesSection from "../components/LoanServicesSection";
+import ProtectionServicesSection from "../components/ProtectionServicesSection";
+import BusinessServicesSection from "../components/BusinessServicesSection";
+
 
 
 
@@ -30,6 +33,8 @@ function Home() {
 
       <TrustedAdvisorsBanner />
       <LoanServicesSection />
+      <ProtectionServicesSection />
+      <BusinessServicesSection />
      
       <ServicesShowcase />
 
