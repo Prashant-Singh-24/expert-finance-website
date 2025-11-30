@@ -1485,3 +1485,265 @@ textarea {
     flex: 0 0 360px;
   }
 }
+
+/* === Protection Services continuous loop – FULL WIDTH === */
+
+.protection-services-section {
+  padding: 40px 0;
+  width: 100vw;        /* full viewport width */
+  max-width: none;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Make sure generic .section centering doesn't constrain this one */
+.section.protection-services-section {
+  max-width: none;
+  margin: 0;
+}
+
+/* Full-width loop container */
+.protection-loop-wrapper {
+  position: relative;
+  width: 100vw;
+  margin: 10px 0 0;
+  overflow: hidden;
+}
+
+/* Pause animation on hover */
+.protection-loop-wrapper:hover .protection-loop-track {
+  animation-play-state: paused;
+}
+
+/* Moving track – RIGHT → LEFT this time */
+.protection-loop-track {
+  display: flex;
+  width: max-content;
+  animation: protection-loop-scroll 35s linear infinite;
+}
+
+/* BIG, full-size cards (same style as loan cards) */
+.protection-loop-card {
+  display: flex;
+  flex: 0 0 640px;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  margin-right: 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.protection-loop-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
+}
+
+/* IMAGE SIDE */
+.protection-card-image {
+  flex: 0 0 50%;
+}
+
+.protection-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* TEXT SIDE */
+.protection-card-content {
+  flex: 1;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.protection-card-tag {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.protection-card-title {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.protection-card-description {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0 0 8px;
+}
+
+.protection-card-link {
+  margin-top: auto;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.protection-card-link:hover {
+  text-decoration: underline;
+}
+
+/* Loop animation – cards move from RIGHT to LEFT */
+@keyframes protection-loop-scroll {
+  from {
+    transform: translateX(0);       /* start aligned */
+  }
+  to {
+    transform: translateX(-50%);    /* slide left by half (we duplicated the list) */
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .protection-loop-card {
+    flex: 0 0 520px;
+  }
+}
+
+@media (max-width: 640px) {
+  .protection-loop-card {
+    flex: 0 0 360px;
+  }
+}
+
+/* === Business Services continuous loop – FULL WIDTH === */
+
+.business-services-section {
+  padding: 40px 0;
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/* Remove generic .section max-width constraint */
+.section.business-services-section {
+  max-width: none;
+  margin: 0;
+}
+
+/* Full-width loop container */
+.business-loop-wrapper {
+  position: relative;
+  width: 100vw;
+  margin: 10px 0 0;
+  overflow: hidden;
+}
+
+/* Pause animation on hover */
+.business-loop-wrapper:hover .business-loop-track {
+  animation-play-state: paused;
+}
+
+/* Moving track – LEFT → RIGHT */
+.business-loop-track {
+  display: flex;
+  width: max-content;
+  animation: business-loop-scroll 35s linear infinite;
+}
+
+/* Card layout – same feeling as loan & protection cards */
+.business-loop-card {
+  display: flex;
+  flex: 0 0 640px;
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  margin-right: 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.business-loop-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
+}
+
+/* IMAGE SIDE */
+.business-card-image {
+  flex: 0 0 50%;
+}
+
+.business-card-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* TEXT SIDE */
+.business-card-content {
+  flex: 1;
+  padding: 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.business-card-tag {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--secondary);
+  font-weight: 700;
+}
+
+.business-card-title {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.business-card-description {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 0 0 8px;
+}
+
+.business-card-link {
+  margin-top: auto;
+  font-size: 13px;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.business-card-link:hover {
+  text-decoration: underline;
+}
+
+/* Loop animation – LEFT to RIGHT (mirror of protection) */
+@keyframes business-loop-scroll {
+  from {
+    transform: translateX(-50%);  /* start shifted left */
+  }
+  to {
+    transform: translateX(0);     /* move track right */
+  }
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+  .business-loop-card {
+    flex: 0 0 520px;
+  }
+}
+
+@media (max-width: 640px) {
+  .business-loop-card {
+    flex: 0 0 360px;
+  }
+}
