@@ -64,30 +64,23 @@ function ProtectionServicesSection() {
       <div className="protection-loop-wrapper">
         <div className="protection-loop-track">
           {loopedProtection.map((service, idx) => (
-            <div
-              className="protection-loop-card"
-              key={`${service.id}-${idx}`}
-            >
+            <div className="protection-loop-card" key={`${service.id}-${idx}`}>
               <div className="protection-card-image">
                 <img src={service.image} alt={service.title} />
               </div>
 
               <div className="protection-card-content">
-                <div className="protection-card-tag">
-                  {service.tagline}
-                </div>
-                <h3 className="protection-card-title">
-                  {service.title}
-                </h3>
+                <div className="protection-card-tag">{service.tagline}</div>
+                <h3 className="protection-card-title">{service.title}</h3>
                 <p className="protection-card-description">
                   {service.description}
                 </p>
 
                 <Link
-                  to="/contact"
+                  to={`/services/${service.id}`}
                   className="protection-card-link"
                 >
-                  Talk to us about {service.title.toLowerCase()}
+                  Learn more about {service.title.toLowerCase()}
                 </Link>
               </div>
             </div>

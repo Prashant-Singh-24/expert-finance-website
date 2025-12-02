@@ -83,10 +83,7 @@ function LoanServicesSection() {
       <div className="loan-loop-wrapper">
         <div className="loan-loop-track">
           {loopedLoans.map((service, idx) => (
-            <div
-              className="loan-loop-card"
-              key={`${service.id}-${idx}`}
-            >
+            <div className="loan-loop-card" key={`${service.id}-${idx}`}>
               <div className="loan-card-image">
                 <img src={service.image} alt={service.title} />
               </div>
@@ -94,15 +91,10 @@ function LoanServicesSection() {
               <div className="loan-card-content">
                 <div className="loan-card-tag">{service.tagline}</div>
                 <h3 className="loan-card-title">{service.title}</h3>
-                <p className="loan-card-description">
-                  {service.description}
-                </p>
+                <p className="loan-card-description">{service.description}</p>
 
-                <Link
-                  to="/contact"
-                  className="loan-card-link"
-                >
-                  Talk to us about {service.title.toLowerCase()}
+                <Link to={`/services/${service.id}`} className="loan-card-link">
+                  Learn more about {service.title.toLowerCase()}
                 </Link>
               </div>
             </div>

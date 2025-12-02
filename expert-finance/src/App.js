@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
@@ -10,6 +10,7 @@ import Mortgages from "./pages/Mortgages";
 import Insurance from "./pages/Insurance";
 import CalculatorPage from "./pages/CalculatorPage";
 import Contact from "./pages/Contact";
+import ServiceDetailPage from "./pages/ServiceDetailPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/mortgages" element={<Mortgages />} />
           <Route path="/insurance" element={<Insurance />} />
