@@ -2135,3 +2135,183 @@ textarea {
   display: inline-block;
 }
 
+/* === Location / Map section === */
+
+.location-section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Centered header */
+
+.location-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 24px;
+}
+
+.location-title-center {
+  margin-top: 6px;
+}
+
+.location-subtitle-center {
+  margin-top: 4px;
+}
+
+/* Two equal cards */
+
+.location-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Base card style – same for both */
+
+.location-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  padding: 18px 20px;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.location-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.32);
+}
+
+/* Text card specifics */
+
+.location-card-text {
+  gap: 8px;
+}
+
+.location-name {
+  margin: 0 0 4px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.location-address {
+  margin: 0 0 6px;
+  font-size: 14px;
+}
+
+.location-note {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.location-points {
+  margin: 0 0 10px;
+  padding-left: 18px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.location-points li {
+  margin-bottom: 3px;
+}
+
+.location-btn {
+  margin-top: auto; /* pushes button to bottom for nice alignment */
+}
+
+/* Map card specifics */
+
+.location-card-map {
+  padding: 0; /* map uses full area */
+}
+
+.location-map-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+/* Map fills the card */
+.location-map-inner iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Clickable overlay so any click goes to Google Maps */
+.location-map-overlay {
+  position: absolute;
+  inset: 0;
+  text-indent: -9999px;
+}
+
+/* Entrance animation */
+
+@keyframes location-pop {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .location-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .location-card {
+    min-height: 260px;
+  }
+}
+
+/* Left card: slide in from left */
+.location-card-text {
+  gap: 8px;
+  animation: location-slide-left 0.10s ease-out;
+  animation-fill-mode: both;
+}
+
+/* Right card: slide in from right */
+.location-card-map {
+  padding: 0;
+  animation: location-slide-right 0.10s ease-out;
+  animation-delay: 0.05s;
+  animation-fill-mode: both;
+}
+
+@keyframes location-slide-left {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes location-slide-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
