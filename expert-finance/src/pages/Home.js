@@ -12,6 +12,8 @@ import LoanServicesSection from "../components/LoanServicesSection";
 import ProtectionServicesSection from "../components/ProtectionServicesSection";
 import BusinessServicesSection from "../components/BusinessServicesSection";
 import FAQSection from "../components/FAQSection";
+import LocationSection from "../components/LocationSection";
+
 
 
 function Home() {
@@ -32,6 +34,7 @@ function Home() {
       <ProtectionServicesSection />
       <BusinessServicesSection />
       <FAQSection />
+      <LocationSection />
     </>
   );
 }
