@@ -11,6 +11,8 @@ import AboutHomeSection from "../components/AboutHomeSection";
 import LoanServicesSection from "../components/LoanServicesSection";
 import ProtectionServicesSection from "../components/ProtectionServicesSection";
 import BusinessServicesSection from "../components/BusinessServicesSection";
+import FAQSection from "../components/FAQSection";
+
 
 function Home() {
   const navigate = useNavigate();
@@ -29,6 +31,7 @@ function Home() {
       <LoanServicesSection />
       <ProtectionServicesSection />
       <BusinessServicesSection />
+      <FAQSection />
     </>
   );
 }
