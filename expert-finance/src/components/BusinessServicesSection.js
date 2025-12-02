@@ -45,8 +45,9 @@ function BusinessServicesSection() {
           Finance to help your business move forward.
         </h2>
         <p className="section-subtitle">
-          From day-to-day cashflow to growth, acquisitions and equipment, we help
-          you match the right structure and lender to your business strategy.
+          From day-to-day cashflow to growth, acquisitions and equipment, we
+          help you match the right structure and lender to your business
+          strategy.
         </p>
       </div>
 
@@ -54,10 +55,7 @@ function BusinessServicesSection() {
       <div className="business-loop-wrapper">
         <div className="business-loop-track">
           {loopedBusiness.map((service, idx) => (
-            <div
-              className="business-loop-card"
-              key={`${service.id}-${idx}`}
-            >
+            <div className="business-loop-card" key={`${service.id}-${idx}`}>
               <div className="business-card-image">
                 <img src={service.image} alt={service.title} />
               </div>
@@ -69,8 +67,11 @@ function BusinessServicesSection() {
                   {service.description}
                 </p>
 
-                <Link to="/contact" className="business-card-link">
-                  Talk to us about {service.title.toLowerCase()}
+                <Link
+                  to={`/services/${service.id}`}
+                  className="business-card-link"
+                >
+                  Learn more about {service.title.toLowerCase()}
                 </Link>
               </div>
             </div>
