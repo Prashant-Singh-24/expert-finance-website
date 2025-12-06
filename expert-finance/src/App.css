@@ -938,10 +938,86 @@ textarea {
   margin: 8px 0 14px;
 }
 
+.review-loop-wrapper {
+  position: relative;
+  width: 100vw;          /* take the full viewport width */
+  max-width: 100vw;
+  margin-top: -10px;
+  left: 50%;             /* center this full-width strip */
+  transform: translateX(-50%);
+  overflow: hidden;            /* hide overflow so cards slide cleanly */
+}
+
+.review-loop-wrapper:hover .review-loop-track {
+  animation-play-state: paused;
+}
+
+/* Moving track with all cards in one row */
+.review-loop-track {
+  display: flex;
+  width: max-content;
+  animation: review-loop-scroll 36s linear infinite;
+  animation-direction: reverse;  /* 🔹 makes it move LEFT → RIGHT */
+}
+
 .review-window {
   width: 100%;
   max-width: 900px;
   overflow: hidden;
+}
+
+/* Card styling – reuse your existing look but sized for a row */
+.review-card {
+flex: 0 0 320px;               /* was 360px – a bit narrower */
+  background: rgba(15, 23, 42, 0.96);
+  border-radius: 16px;           /* slightly tighter corners */
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  padding: 15px 18px 17px;       /* a bit less padding */
+  margin-right: 16px;            /* smaller gap between cards */
+  box-shadow: 0 14px 32px rgba(15, 23, 42, 0.55);
+}
+
+
+.review-stars {
+  color: #facc15;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.review-text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: #e5e7eb;
+  margin: 0 0 10px;
+}
+
+.review-name {
+  font-weight: 700;
+  font-size: 13px;
+  color: #f9fafb;
+}
+
+.review-tag {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* Animation: base is right → left; we reverse it above */
+@keyframes review-loop-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile tweaks */
+@media (max-width: 768px) {
+  .review-card {
+    flex: 0 0 80vw;             /* bigger on small screens */
+    margin-right: 16px;
+  }
 }
 
 /* 3 cards side-by-side on desktop, 1 on mobile */
@@ -1017,6 +1093,7 @@ textarea {
 /* Google Maps CTA button */
 
 .video-banner-link {
+  margin-top: 4.5px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2153,7 +2230,7 @@ textarea {
   .nav-toggle {
     margin-left: 4px;
   }
-  
+
 }
 
 /* Ensure mobile panel never shows on desktop */
