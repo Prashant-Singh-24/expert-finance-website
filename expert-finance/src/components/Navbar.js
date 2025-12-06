@@ -1,6 +1,7 @@
+// src/components/Navbar.js
 import React, { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import logo from "../assets/Logo_exp.jpeg"; // whatever your logo import is
+import logo from "../assets/Logo_exp.jpeg"; // your existing logo
 
 const serviceNavGroups = [
   {
@@ -34,37 +35,38 @@ const serviceNavGroups = [
 ];
 
 function Navbar() {
-  const [showServices, setShowServices] = useState(false);
+  const [showServices, setShowServices] = useState(false);   // desktop dropdown
+  const [mobileOpen, setMobileOpen] = useState(false);       // mobile menu
 
-  const toggleServices = () => {
-    setShowServices((prev) => !prev);
+  const toggleServices = () => setShowServices((prev) => !prev);
+
+  const toggleMobile = () => {
+    setMobileOpen((prev) => !prev);
+    setShowServices(false);
   };
 
-  const closeServices = () => setShowServices(false);
+  const closeAll = () => {
+    setShowServices(false);
+    setMobileOpen(false);
+  };
 
   return (
     <header className="site-header">
       <div className="navbar">
-        {/* Left: Logo */}
-        <Link to="/" className="nav-logo" onClick={closeServices}>
+        {/* Left: logo */}
+        <Link to="/" className="nav-logo" onClick={closeAll}>
           <img src={logo} alt="Expert Finance" />
         </Link>
 
-        {/* Center: Main nav links */}
+        {/* Center: desktop nav */}
         <nav className="nav-center">
           <ul className="nav-links">
             <li>
-              <NavLink to="/" end onClick={closeServices}>
+              <NavLink to="/" end onClick={closeAll}>
                 Home
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/about" onClick={closeServices}>
-                About Us
-              </NavLink>
-            </li>
 
-            {/* SERVICES DROPDOWN – opens on click */}
             <li className="nav-item services-nav">
               <button
                 type="button"
@@ -92,7 +94,7 @@ function Navbar() {
                           key={item.id}
                           to={`/services/${item.id}`}
                           className="services-dropdown-link"
-                          onClick={closeServices}
+                          onClick={closeAll}
                         >
                           <span className="services-dropdown-emoji">
                             {item.emoji}
@@ -107,28 +109,107 @@ function Navbar() {
             </li>
 
             <li>
-              <NavLink to="/insurance" onClick={closeServices}>
+              <NavLink to="/about" onClick={closeAll}>
+                About Us
+              </NavLink>
+            </li>
+
+            <li>
+              <NavLink to="/insurance" onClick={closeAll}>
                 Insurance
               </NavLink>
             </li>
             <li>
-              <NavLink to="/calculator" onClick={closeServices}>
+              <NavLink to="/calculator" onClick={closeAll}>
                 Calculator
               </NavLink>
             </li>
             <li>
-              <NavLink to="/contact" onClick={closeServices}>
+              <NavLink to="/contact" onClick={closeAll}>
                 Contact
               </NavLink>
             </li>
           </ul>
         </nav>
 
-        {/* Right: Book Free Chat button */}
-        <Link to="/contact" className="nav-cta" onClick={closeServices}>
-          Book Free Chat
-        </Link>
+        {/* Right: desktop CTA + mobile burger */}
+        <div className="nav-right">
+          <Link to="/contact" className="nav-cta" onClick={closeAll}>
+            Book Free Chat
+          </Link>
+
+          <button
+            className="nav-toggle"
+            type="button"
+            onClick={toggleMobile}
+            aria-label="Toggle navigation"
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
       </div>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <nav className="mobile-menu" aria-label="Mobile navigation">
+          <ul className="mobile-menu-list">
+            {/* 1. HOME */}
+            <li>
+              <NavLink to="/" end onClick={closeAll}>
+                Home
+              </NavLink>
+            </li>
+
+            {/* 2. SERVICES (all service items grouped) */}
+            <li className="mobile-services-group">
+              <div className="mobile-services-heading">Services</div>
+              {serviceNavGroups.map((group) => (
+                <div key={group.label}>
+                  <div className="mobile-service-group-title">
+                    {group.label}
+                  </div>
+                  {group.items.map((item) => (
+                    <NavLink
+                      key={item.id}
+                      to={`/services/${item.id}`}
+                      className="mobile-service-link"
+                      onClick={closeAll}
+                    >
+                      {item.emoji} {item.label}
+                    </NavLink>
+                  ))}
+                </div>
+              ))}
+            </li>
+
+            {/* 3. ABOUT US (AFTER SERVICES) */}
+            <li>
+              <NavLink to="/about" onClick={closeAll}>
+                About Us
+              </NavLink>
+            </li>
+
+            {/* 4. REST */}
+            <li>
+              <NavLink to="/insurance" onClick={closeAll}>
+                Insurance
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/calculator" onClick={closeAll}>
+                Calculator
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/contact" onClick={closeAll}>
+                Contact
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+      )}
     </header>
   );
 }
