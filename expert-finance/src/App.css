@@ -599,6 +599,31 @@ textarea {
   }
 }
 
+.footer-grid.footer-grid-4 {
+  grid-template-columns: 2.2fr 1.3fr 1.3fr 1.3fr;
+}
+
+.footer-col-brand p {
+  margin: 0 0 8px;
+}
+
+.footer-muted {
+  color: #9ca3af;
+}
+
+/* Responsive tweaks for the 4-col grid */
+@media (max-width: 900px) {
+  .footer-grid.footer-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .footer-grid.footer-grid-4 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* ===========================
    CAROUSEL (older image/text carousel)
    =========================== */
