@@ -2084,90 +2084,48 @@ textarea {
 
 /* Mobile menu – base hidden */
 
+/* === Mobile menu base === */
 .mobile-menu {
-  display: none;
+  display: none;            /* hidden on desktop by default */
 }
 
 /* Global mobile layout adjustments */
-
 @media (max-width: 900px) {
   .navbar {
     padding: 10px 20px;
-  }
-
-  .nav-center {
-    display: none;
-  }
-
-  .nav-toggle {
-    display: inline-flex;
-  }
-
-  /* Old mobile nav panel (if used anywhere) */
-  .mobile-nav-panel {
-    background: #ffffff;
-    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
-    padding: 10px 20px 18px;
-  }
-
-  .mobile-nav-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .mobile-nav-list li {
-    display: block;
-  }
-
-  .mobile-nav-list a {
-    text-decoration: none;
-    font-size: 15px;
-    color: #111827;
-  }
-
-  .mobile-nav-heading {
-    font-size: 11px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--secondary);
-    font-weight: 700;
-    margin-top: 4px;
-    margin-bottom: 2px;
-  }
-
-  .mobile-nav-service-group {
-    margin-top: 4px;
-  }
-
-  .mobile-nav-service-title {
-    font-weight: 600;
-    font-size: 13px;
-    margin-top: 4px;
-  }
-
-  .mobile-nav-service-link {
-    display: block;
-    padding-left: 12px;
-    font-size: 14px;
-    margin-top: 2px;
-  }
-
-  .mobile-nav-cta {
-    margin-top: 8px;
-    align-self: flex-start;
-  }
-
-  /* Make CTA + burger sit together on the right */
-  .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
+  /* hide desktop nav links in the centre */
+  .nav-center {
+    display: none;
+  }
+
+  /* hamburger button */
+  .nav-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    display: block;
+    height: 2px;
+    width: 16px;
+    background: #111827;
+    margin: 0 auto;
+  }
+
+  /* right side (CTA + burger) */
   .nav-right {
     display: flex;
     align-items: center;
@@ -2182,10 +2140,80 @@ textarea {
     font-size: 12px;
   }
 
-  .nav-toggle {
-    margin-left: 4px;
+  /* 🔹 FULL-SCREEN MOBILE MENU PANEL */
+  .mobile-menu {
+    display: block;                  /* now it actually shows */
+    position: fixed;
+    top: 72px;                       /* match your header height */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+    padding: 16px 20px 24px;
+    z-index: 999;
+    overflow-y: auto;                /* scroll inside the panel if long */
+  }
+
+  .mobile-menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .mobile-menu-list li {
+    display: block;
+  }
+
+  .mobile-menu-list a {
+    text-decoration: none;
+    font-size: 15px;
+    color: #111827;
+  }
+
+  .mobile-services-heading {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--secondary);
+    font-weight: 700;
+    margin-top: 10px;
+  }
+
+  .mobile-service-group-title {
+    font-weight: 600;
+    margin-top: 6px;
+    font-size: 13px;
+  }
+
+  .mobile-service-link {
+    font-size: 14px;
+    padding-left: 10px;
+    display: block;
+  }
+
+  .mobile-cta {
+    margin-top: 8px;
+    align-self: flex-start;
+  }
+
+  /* hide desktop mega-menu on mobile only */
+  .services-dropdown {
+    display: none;
   }
 }
+
+/* ensure mobile menu never shows on desktop (safety) */
+@media (min-width: 901px) {
+  .mobile-menu {
+    display: none;
+  }
+}
+
 
 /* Ensure the old mobile panel never shows on desktop */
 
