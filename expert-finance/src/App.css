@@ -12,7 +12,6 @@ video {
   height: auto;
 }
 
-
 :root {
   --primary: #0052cc;
   --primary-light: #e6f0ff;
@@ -32,8 +31,7 @@ video {
 
 body {
   margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background-color: var(--bg);
   color: var(--text-main);
 }
@@ -54,7 +52,10 @@ a {
   padding-top: 72px; /* space for navbar */
 }
 
-/* Navbar */
+/* ===========================
+   ORIGINAL NAVBAR STYLES
+   (positioning / fixed header)
+   =========================== */
 
 .navbar {
   position: fixed;
@@ -73,9 +74,9 @@ a {
 
 .nav-inner {
   width: 100%;
-  max-width: 100%;      /* full width */
-  padding: 0 16px;      /* small breathing space from the edges */
-  margin: 0;            /* no centering gutter */
+  max-width: 100%;
+  padding: 0 16px;
+  margin: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -84,12 +85,12 @@ a {
 .brand {
   display: flex;
   align-items: center;
-  gap: 0;            
+  gap: 0;
 }
 
 .brand-logo {
-  height: 52px;       
-  width: auto;        
+  height: 52px;
+  width: auto;
   object-fit: contain;
   display: block;
 }
@@ -146,7 +147,7 @@ a {
   box-shadow: 0 8px 18px rgba(0, 82, 204, 0.25);
 }
 
-/* Mobile nav */
+/* Mobile nav (old) */
 
 .nav-toggle {
   display: none;
@@ -180,15 +181,17 @@ a {
   }
 
   .nav-cta {
-    /* display: none; */
+    display: none;
   }
 }
 
-/* Layout helpers */
+/* ===========================
+   LAYOUT HELPERS / SECTIONS
+   =========================== */
 
 .section {
   width: 100%;
-  max-width: 100%;      /* full width */
+  max-width: 100%;
   margin: 0;
   padding: 40px 16px;
 }
@@ -198,25 +201,26 @@ a {
   flex-direction: column;
   gap: 6px;
   margin-bottom: 24px;
-  align-items: center;       /* center content horizontally */
-  text-align: center;        /* center text */
+  align-items: center;
+  text-align: center;
 }
 
-
 .section-title {
-  font-size: clamp(26px, 3vw, 32px);   /* bigger main heading */
+  font-size: clamp(26px, 3vw, 32px);
   margin: 0;
   font-weight: 700;
 }
 
 .section-subtitle {
-  font-size: 15px;           /* a bit larger */
+  font-size: 15px;
   color: var(--text-muted);
-  max-width: 780px;          /* keep lines nice and readable */
-  margin: 0 auto;            /* center under title */
+  max-width: 780px;
+  margin: 0 auto;
 }
 
-/* Hero */
+/* ===========================
+   HERO
+   =========================== */
 
 .hero {
   width: 100%;
@@ -226,10 +230,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;             /* center text in the banner */
+  text-align: center;
   color: #f9fafb;
   position: relative;
-
   background-image:
     linear-gradient(120deg, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.45)),
     url("./assets/auckland-banner.png");
@@ -238,9 +241,8 @@ a {
   background-repeat: no-repeat;
 
   .hero-content {
-  max-width: 800px;   /* keeps text nicely contained */
-}
-
+    max-width: 800px;
+  }
 }
 
 @media (max-width: 900px) {
@@ -248,8 +250,6 @@ a {
     padding: 90px 16px 110px;
   }
 }
-
-
 
 .hero-badge {
   display: inline-flex;
@@ -276,7 +276,6 @@ a {
   margin: 0 0 6px;
 }
 
-/* NEW punch line style */
 .hero-punchline {
   font-size: 16px;
   font-weight: 600;
@@ -295,7 +294,6 @@ a {
   margin: 0 auto 18px;
 }
 
-/* Center these rows */
 .hero-usp-row {
   display: flex;
   flex-wrap: wrap;
@@ -326,8 +324,6 @@ a {
   color: #d1d5db;
 }
 
-
-
 .btn-primary,
 .btn-outline {
   border-radius: 999px;
@@ -349,6 +345,8 @@ a {
   border: 1px solid #d9e2ff;
   color: var(--primary);
 }
+
+/* Cards & grids */
 
 .hero-right {
   position: relative;
@@ -374,7 +372,6 @@ a {
   margin-bottom: 10px;
 }
 
-
 .hero-metrics {
   display: flex;
   gap: 18px;
@@ -393,8 +390,6 @@ a {
   font-size: 11px;
   color: var(--text-muted);
 }
-
-/* Cards & grids */
 
 .card-grid {
   display: grid;
@@ -455,7 +450,9 @@ a {
   margin-top: auto;
 }
 
-/* Loan calculator */
+/* ===========================
+   LOAN CALCULATOR
+   =========================== */
 
 .calculator-wrapper {
   display: grid;
@@ -512,7 +509,9 @@ textarea {
   font-size: 13px;
 }
 
-/* About & Mortgages local nav */
+/* ===========================
+   SUBNAV (About / service pages)
+   =========================== */
 
 .subnav {
   display: flex;
@@ -534,7 +533,9 @@ textarea {
   color: var(--primary);
 }
 
-/* Footer */
+/* ===========================
+   FOOTER
+   =========================== */
 
 .footer {
   background: #020617;
@@ -545,7 +546,7 @@ textarea {
 
 .footer-inner {
   width: 100%;
-  max-width: 100%;      /* full width */
+  max-width: 100%;
   margin: 0;
 }
 
@@ -598,7 +599,9 @@ textarea {
   }
 }
 
-/* === Carousel === */
+/* ===========================
+   CAROUSEL (older image/text carousel)
+   =========================== */
 
 .carousel {
   position: relative;
@@ -716,7 +719,9 @@ textarea {
   }
 }
 
-/* === Image strip with more photos === */
+/* ===========================
+   IMAGE STRIP
+   =========================== */
 
 .image-strip {
   display: grid;
@@ -739,7 +744,6 @@ textarea {
   background-position: center;
 }
 
-/* Use placeholder images for now – replace with real mortgage photos later */
 .image-strip-photo-1 {
   background-image: url("https://via.placeholder.com/400x250?text=First+Home");
 }
@@ -770,7 +774,9 @@ textarea {
   }
 }
 
-/* === Bank logos section === */
+/* ===========================
+   BANK LOGOS – STATIC
+   =========================== */
 
 .bank-logos-section {
   padding-bottom: 50px;
@@ -814,32 +820,34 @@ textarea {
   color: var(--text-muted);
 }
 
-/* === Scrolling bank logo strip (no container, full colour) === */
+/* ===========================
+   BANK LOGOS – INFINITE STRIP
+   =========================== */
 
 .bank-marquee-section {
   width: 100%;
-  padding: 12px 0 8px;     /* small vertical spacing only */
-  background: transparent;  /* no background container */
+  padding: 12px 0 8px;
+  background: transparent;
 }
 
 .bank-marquee-label {
-  font-size: 20px;                 /* bigger */
+  font-size: 20px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #0c2f7a;
   font-weight: 750;
-  text-align: center;              /* center across full width */
-  margin: 0 0 10px 0;              /* no left offset */
+  text-align: center;
+  margin: 0 0 10px 0;
 }
 
 .bank-marquee {
-  overflow: hidden;         /* hides the loop edges */
+  overflow: hidden;
 }
 
 .bank-marquee-inner {
   display: inline-flex;
   align-items: center;
-  gap: 40px;                 /* spacing between logos */
+  gap: 40px;
   white-space: nowrap;
   will-change: transform;
   animation: bank-scroll 40s linear infinite;
@@ -850,10 +858,9 @@ textarea {
 }
 
 .bank-marquee-item img {
-  height: 80px;             /* adjust if you want bigger/smaller */
+  height: 80px;
   width: auto;
   object-fit: contain;
-  /* NO grayscale, NO hover filters – show logos exactly as provided */
 }
 
 @keyframes bank-scroll {
@@ -874,7 +881,9 @@ textarea {
   }
 }
 
-/* === Advisor video banner + client review carousel === */
+/* ===========================
+   ADVISER VIDEO + REVIEW LOOP
+   =========================== */
 
 .video-banner-section {
   position: relative;
@@ -918,7 +927,6 @@ textarea {
   text-align: center;
 }
 
-/* override kicker colour inside this banner */
 .video-banner-inner .section-kicker {
   color: #ffffff;
 }
@@ -930,7 +938,7 @@ textarea {
   color: #ffffff;
 }
 
-/* === Review carousel inside advisor video banner === */
+/* Review loop strip */
 
 .review-carousel {
   display: flex;
@@ -940,43 +948,34 @@ textarea {
 
 .review-loop-wrapper {
   position: relative;
-  width: 100vw;          /* take the full viewport width */
+  width: 100vw;
   max-width: 100vw;
   margin-top: -10px;
-  left: 50%;             /* center this full-width strip */
+  left: 50%;
   transform: translateX(-50%);
-  overflow: hidden;            /* hide overflow so cards slide cleanly */
+  overflow: hidden;
 }
 
 .review-loop-wrapper:hover .review-loop-track {
   animation-play-state: paused;
 }
 
-/* Moving track with all cards in one row */
 .review-loop-track {
   display: flex;
   width: max-content;
   animation: review-loop-scroll 36s linear infinite;
-  animation-direction: reverse;  /* 🔹 makes it move LEFT → RIGHT */
+  animation-direction: reverse; /* left → right */
 }
 
-.review-window {
-  width: 100%;
-  max-width: 900px;
-  overflow: hidden;
-}
-
-/* Card styling – reuse your existing look but sized for a row */
 .review-card {
-flex: 0 0 320px;               /* was 360px – a bit narrower */
+  flex: 0 0 320px;
   background: rgba(15, 23, 42, 0.96);
-  border-radius: 16px;           /* slightly tighter corners */
+  border-radius: 16px;
   border: 1px solid rgba(148, 163, 184, 0.45);
-  padding: 15px 18px 17px;       /* a bit less padding */
-  margin-right: 16px;            /* smaller gap between cards */
+  padding: 15px 18px 17px;
+  margin-right: 16px;
   box-shadow: 0 14px 32px rgba(15, 23, 42, 0.55);
 }
-
 
 .review-stars {
   color: #facc15;
@@ -1002,7 +1001,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   color: #9ca3af;
 }
 
-/* Animation: base is right → left; we reverse it above */
 @keyframes review-loop-scroll {
   from {
     transform: translateX(0);
@@ -1012,22 +1010,13 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   }
 }
 
-/* Mobile tweaks */
-@media (max-width: 768px) {
-  .review-card {
-    flex: 0 0 80vw;             /* bigger on small screens */
-    margin-right: 16px;
-  }
-}
-
-/* 3 cards side-by-side on desktop, 1 on mobile */
+/* Additional grid layout for smaller viewport widths */
 .review-track {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
-/* Individual review cards */
 .review-card {
   background: rgba(15, 23, 42, 0.55);
   border-radius: 18px;
@@ -1036,8 +1025,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   box-shadow: 0 12px 30px rgba(15, 23, 42, 0.45);
   text-align: left;
   color: #ffffff;
-
-  /* subtle slide/fade animation when cards change */
   animation: review-slide-in 0.6s ease;
 }
 
@@ -1063,7 +1050,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   color: #e5e7eb;
 }
 
-/* Slide-in animation */
 @keyframes review-slide-in {
   from {
     opacity: 0;
@@ -1075,7 +1061,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   }
 }
 
-/* Responsive – stack cards on small screens */
 @media (max-width: 768px) {
   .review-track {
     grid-template-columns: minmax(0, 1fr);
@@ -1090,7 +1075,7 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   }
 }
 
-/* Google Maps CTA button */
+/* Google Maps CTA */
 
 .video-banner-link {
   margin-top: 4.5px;
@@ -1114,16 +1099,10 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   opacity: 0.96;
 }
 
-/* Responsive tweaks */
-
 @media (max-width: 768px) {
   .video-banner-content {
     align-items: center;
     padding: 20px 12px;
-  }
-
-  .review-card {
-    padding: 14px 14px;
   }
 
   .video-banner-title {
@@ -1135,7 +1114,9 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   }
 }
 
-/* === Trusted Advisors video banner === */
+/* ===========================
+   TRUSTED ADVISORS VIDEO
+   =========================== */
 
 .about-video-section {
   position: relative;
@@ -1156,7 +1137,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
 .about-video-overlay {
   position: absolute;
   inset: 0;
-  /* Make this semi-transparent so the video is visible */
   background: linear-gradient(
     120deg,
     rgba(15, 23, 42, 0.7),
@@ -1195,7 +1175,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   color: #f9fafb;
 }
 
-/* Responsive tweaks */
 @media (max-width: 768px) {
   .about-video-content {
     padding: 22px 12px;
@@ -1214,7 +1193,9 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   }
 }
 
-/* === Home About Us section === */
+/* ===========================
+   HOME ABOUT US
+   =========================== */
 
 .about-home-section {
   padding-top: 32px;
@@ -1253,8 +1234,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   color: var(--text-muted);
 }
 
-/* Right card with visual + stats */
-
 .about-home-card {
   background: #ffffff;
   border-radius: var(--radius-lg);
@@ -1275,9 +1254,10 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   display: block;
   width: 100%;
   height: 100%;
-  max-height: 400px;      
+  max-height: 400px;
   object-fit: cover;
 }
+
 .about-home-stats {
   display: flex;
   flex-direction: column;
@@ -1300,19 +1280,19 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   color: var(--text-muted);
 }
 
-/* Responsive */
-
 @media (max-width: 900px) {
   .about-home-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 
   .about-home-card {
-    order: -1; /* show the visual card above text on mobile, optional */
+    order: -1;
   }
 }
 
-/* === Our Services animated cards === */
+/* ===========================
+   “Our Services” THREE-CARD
+   =========================== */
 
 .services-section {
   padding-top: 36px;
@@ -1362,8 +1342,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   transform: translateX(20px) scale(0.9);
 }
 
-/* Content styling */
-
 .services-card-icon {
   font-size: 24px;
   margin-bottom: 4px;
@@ -1386,8 +1364,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   font-size: 13px;
   color: var(--text-muted);
 }
-
-/* Slide-in animation for active card */
 
 .services-slide-in-left {
   animation: services-slide-left 0.45s ease;
@@ -1419,8 +1395,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   }
 }
 
-/* Responsive – stack / focus centre card */
-
 @media (max-width: 900px) {
   .services-carousel {
     gap: 10px;
@@ -1438,7 +1412,7 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   }
 
   .services-card-side {
-    display: none; /* only show active card on very small screens */
+    display: none;
   }
 
   .services-card-center {
@@ -1446,24 +1420,24 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   }
 }
 
-/* === Loan Services continuous loop – FULL WIDTH === */
+/* ===========================
+   LOAN SERVICES – INFINITE LOOP
+   =========================== */
 
 .loan-services-section {
   padding: 40px 0;
-  width: 100vw;        /* full viewport width */
+  width: 100vw;
   max-width: none;
   margin: 0;
   padding-left: 0;
   padding-right: 0;
 }
 
-/* Make sure the generic .section centering doesn't constrain this one */
 .section.loan-services-section {
   max-width: none;
   margin: 0;
 }
 
-/* The loop now spans the entire viewport */
 .loan-loop-wrapper {
   position: relative;
   width: 100vw;
@@ -1471,22 +1445,19 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   overflow: hidden;
 }
 
-/* Pause animation on hover anywhere on the loop */
 .loan-loop-wrapper:hover .loan-loop-track {
   animation-play-state: paused;
 }
 
-/* Moving track */
 .loan-loop-track {
   display: flex;
   width: max-content;
   animation: loan-loop-scroll 35s linear infinite;
 }
 
-/* BIG, full-size cards in the loop */
 .loan-loop-card {
   display: flex;
-  flex: 0 0 640px;         /* bigger cards so nothing feels cramped */
+  flex: 0 0 640px;
   background: #ffffff;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-soft);
@@ -1496,25 +1467,22 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   cursor: pointer;
 }
 
-/* Pop-up effect on hover */
 .loan-loop-card:hover {
   transform: translateY(-6px) scale(1.02);
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
 }
 
-/* IMAGE – show full image, don't cut it */
 .loan-card-image {
-  flex: 0 0 50%;          /* half the card width for image */
+  flex: 0 0 50%;
 }
 
 .loan-card-image img {
   width: 100%;
-  height: auto;           /* let the image decide the height */
+  height: auto;
   display: block;
-  object-fit: contain;    /* no cropping – full image stays visible */
+  object-fit: contain;
 }
 
-/* TEXT SIDE */
 .loan-card-content {
   flex: 1;
   padding: 20px 22px;
@@ -1555,7 +1523,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   text-decoration: underline;
 }
 
-/* Loop animation – cards move from left to right */
 @keyframes loan-loop-scroll {
   from {
     transform: translateX(-50%);
@@ -1565,10 +1532,9 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   }
 }
 
-/* Responsive tweaks */
 @media (max-width: 900px) {
   .loan-loop-card {
-    flex: 0 0 90vw;        
+    flex: 0 0 90vw;
     flex-direction: column;
   }
 }
@@ -1579,24 +1545,24 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   }
 }
 
-/* === Protection Services continuous loop – FULL WIDTH === */
+/* ===========================
+   PROTECTION SERVICES – LOOP
+   =========================== */
 
 .protection-services-section {
   padding: 40px 0;
-  width: 100vw;        /* full viewport width */
+  width: 100vw;
   max-width: none;
   margin: 0;
   padding-left: 0;
   padding-right: 0;
 }
 
-/* Make sure generic .section centering doesn't constrain this one */
 .section.protection-services-section {
   max-width: none;
   margin: 0;
 }
 
-/* Full-width loop container */
 .protection-loop-wrapper {
   position: relative;
   width: 100vw;
@@ -1604,19 +1570,16 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   overflow: hidden;
 }
 
-/* Pause animation on hover */
 .protection-loop-wrapper:hover .protection-loop-track {
   animation-play-state: paused;
 }
 
-/* Moving track – RIGHT → LEFT this time */
 .protection-loop-track {
   display: flex;
   width: max-content;
   animation: protection-loop-scroll 35s linear infinite;
 }
 
-/* BIG, full-size cards (same style as loan cards) */
 .protection-loop-card {
   display: flex;
   flex: 0 0 640px;
@@ -1634,7 +1597,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
 }
 
-/* IMAGE SIDE */
 .protection-card-image {
   flex: 0 0 50%;
 }
@@ -1646,7 +1608,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   object-fit: contain;
 }
 
-/* TEXT SIDE */
 .protection-card-content {
   flex: 1;
   padding: 20px 22px;
@@ -1687,20 +1648,18 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   text-decoration: underline;
 }
 
-/* Loop animation – cards move from RIGHT to LEFT */
 @keyframes protection-loop-scroll {
   from {
-    transform: translateX(0);       /* start aligned */
+    transform: translateX(0);
   }
   to {
-    transform: translateX(-50%);    /* slide left by half (we duplicated the list) */
+    transform: translateX(-50%);
   }
 }
 
-/* Responsive tweaks */
 @media (max-width: 900px) {
   .protection-loop-card {
-    flex: 0 0 90vw;      
+    flex: 0 0 90vw;
     flex-direction: column;
   }
 }
@@ -1711,7 +1670,9 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   }
 }
 
-/* === Business Services continuous loop – FULL WIDTH === */
+/* ===========================
+   BUSINESS SERVICES – LOOP
+   =========================== */
 
 .business-services-section {
   padding: 40px 0;
@@ -1722,13 +1683,11 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   padding-right: 0;
 }
 
-/* Remove generic .section max-width constraint */
 .section.business-services-section {
   max-width: none;
   margin: 0;
 }
 
-/* Full-width loop container */
 .business-loop-wrapper {
   position: relative;
   width: 100vw;
@@ -1736,19 +1695,16 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   overflow: hidden;
 }
 
-/* Pause animation on hover */
 .business-loop-wrapper:hover .business-loop-track {
   animation-play-state: paused;
 }
 
-/* Moving track – LEFT → RIGHT */
 .business-loop-track {
   display: flex;
   width: max-content;
   animation: business-loop-scroll 35s linear infinite;
 }
 
-/* Card layout – same feeling as loan & protection cards */
 .business-loop-card {
   display: flex;
   flex: 0 0 640px;
@@ -1766,7 +1722,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   box-shadow: 0 20px 45px rgba(15, 23, 42, 0.25);
 }
 
-/* IMAGE SIDE */
 .business-card-image {
   flex: 0 0 50%;
 }
@@ -1778,7 +1733,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   object-fit: contain;
 }
 
-/* TEXT SIDE */
 .business-card-content {
   flex: 1;
   padding: 20px 22px;
@@ -1819,17 +1773,15 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   text-decoration: underline;
 }
 
-/* Loop animation – LEFT to RIGHT (mirror of protection) */
 @keyframes business-loop-scroll {
   from {
-    transform: translateX(-50%);  /* start shifted left */
+    transform: translateX(-50%);
   }
   to {
-    transform: translateX(0);     /* move track right */
+    transform: translateX(0);
   }
 }
 
-/* Responsive tweaks */
 @media (max-width: 900px) {
   .business-loop-card {
     flex: 0 0 520px;
@@ -1838,12 +1790,14 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
 
 @media (max-width: 640px) {
   .business-loop-card {
-    flex: 0 0 90vw;        
+    flex: 0 0 90vw;
     flex-direction: column;
   }
 }
 
-/* === Service detail page === */
+/* ===========================
+   SERVICE DETAIL PAGES
+   =========================== */
 
 .service-detail-section {
   padding-top: 40px;
@@ -1913,7 +1867,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   margin-bottom: 4px;
 }
 
-/* CTA button used on all service pages */
 .primary-btn {
   margin-top: 10px;
   display: inline-flex;
@@ -1935,25 +1888,19 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   transform: translateY(-1px);
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .service-detail-hero {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
-/* Responsive for service detail */
 @media (max-width: 900px) {
   .service-detail-hero {
     grid-template-columns: minmax(0, 1fr);
   }
 
   .service-detail-hero-image img {
-    max-height: none;   /* let it grow a bit more on small screens */
+    max-height: none;
   }
 }
 
-/* === NAVBAR – desktop & mobile === */
+/* ===========================
+   NEW NAVBAR (mega menu)
+   =========================== */
 
 .site-header {
   position: sticky;
@@ -1964,6 +1911,7 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   box-shadow: 0 1px 0 rgba(15, 23, 42, 0.08);
 }
 
+/* This .navbar builds on the earlier one (position: fixed) */
 .navbar {
   width: 100%;
   padding: 10px 60px;
@@ -1978,6 +1926,7 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
 }
 
 /* Center nav (desktop) */
+
 .nav-center {
   flex: 1;
   display: flex;
@@ -2009,6 +1958,7 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
 }
 
 /* Dropdown trigger with caret */
+
 .nav-link-dropdown {
   background: transparent;
   border: none;
@@ -2030,14 +1980,14 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   transform: rotate(180deg);
 }
 
-/* Right side (desktop CTA + mobile burger) */
+/* Right side */
+
 .nav-right {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-/* Desktop CTA */
 .nav-cta {
   margin-left: 24px;
   padding: 8px 22px;
@@ -2055,7 +2005,8 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   transform: translateY(-1px);
 }
 
-/* Hamburger toggle (hidden on desktop) */
+/* Hamburger */
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -2079,56 +2030,59 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
 
 /* Desktop dropdown panel */
 
-.services-dropdown {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 10px;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.22);
-  padding: 20px 28px;
-  display: flex;
-  gap: 32px;
-  z-index: 60;
-  min-width: 720px;
-  max-width: 900px;
+@media (min-width: 901px) {
+  .services-nav {
+    position: relative;
+  }
+
+  .services-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 32px;
+    padding: 16px 20px;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.22);
+    z-index: 40;
+  }
+
+  .services-dropdown-column {
+    min-width: 180px;
+  }
+
+  .services-dropdown-heading {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-weight: 700;
+    color: #6b7280;
+    margin-bottom: 6px;
+  }
+
+  .services-dropdown-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    padding: 5px 0;
+    color: #111827;
+    text-decoration: none;
+  }
+
+  .services-dropdown-link:hover {
+    color: #2563eb;
+  }
+
+  .services-dropdown-emoji {
+    width: 18px;
+    text-align: center;
+  }
 }
 
-.services-dropdown-column {
-  min-width: 200px;
-}
-
-.services-dropdown-heading {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  color: var(--secondary);
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.services-dropdown-link {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  padding: 5px 0;
-  color: #111827;
-  text-decoration: none;
-}
-
-.services-dropdown-link:hover {
-  color: #2563eb;
-}
-
-.services-dropdown-emoji {
-  width: 18px;
-  text-align: center;
-}
-
-/* === Mobile menu === */
+/* Mobile menu – base hidden */
 
 .mobile-menu {
   display: none;
@@ -2142,14 +2096,14 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   }
 
   .nav-center {
-    display: none;       /* hide desktop links */
+    display: none;
   }
 
   .nav-toggle {
-    display: inline-flex; /* show burger */
+    display: inline-flex;
   }
 
-/* Panel under the header */
+  /* Old mobile nav panel (if used anywhere) */
   .mobile-nav-panel {
     background: #ffffff;
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
@@ -2207,7 +2161,8 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
     align-self: flex-start;
   }
 
-    .navbar {
+  /* Make CTA + burger sit together on the right */
+  .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -2216,34 +2171,39 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   .nav-right {
     display: flex;
     align-items: center;
-    gap: 8px;                 /* small space between CTA and hamburger */
+    gap: 8px;
   }
 
   .nav-cta {
-    display: inline-flex;     /* make sure it actually shows */
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 6px 14px;        /* a bit smaller for mobile */
+    padding: 6px 14px;
     font-size: 12px;
   }
 
   .nav-toggle {
     margin-left: 4px;
   }
-
 }
 
-/* Ensure mobile panel never shows on desktop */
+/* Ensure the old mobile panel never shows on desktop */
+
 @media (min-width: 901px) {
   .mobile-nav-panel {
     display: none;
   }
 }
 
+/* MOBILE-ONLY mega-menu + mobile menu styles */
+
+@media (max-width: 900px) {
+  /* Hide the mega-menu on mobile */
   .services-dropdown {
-    display: none; /* no mega-menu on mobile */
+    display: none;
   }
 
+  /* Slide-down menu rendered from Navbar.js when mobileOpen is true */
   .mobile-menu {
     display: block;
     background: #ffffff;
@@ -2261,7 +2221,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   }
 
   .mobile-menu-list li {
-    /* ensure each li is visible */
     display: block;
   }
 
@@ -2296,14 +2255,35 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
     margin-top: 8px;
     align-self: flex-start;
   }
+}
 
+/* Hide mobile panel on desktop if any other references exist */
 
+@media (min-width: 901px) {
+  .mobile-menu {
+    display: none;
+  }
+}
 
-/* === FAQ Section === */
+/* ===========================
+   FAQ SECTION
+   =========================== */
 
 .faq-section {
   padding-top: 40px;
   padding-bottom: 40px;
+}
+
+.faq-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.faq-logo {
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  display: inline-block;
 }
 
 .faq-grid {
@@ -2312,8 +2292,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   gap: 32px;
   align-items: flex-start;
 }
-
-/* Left intro column */
 
 .faq-intro {
   display: flex;
@@ -2324,7 +2302,11 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
 .faq-highlight {
   margin-top: 8px;
   font-size: 14px;
-  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(15, 23, 42, 0.03));
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.08),
+    rgba(15, 23, 42, 0.03)
+  );
   border-radius: 16px;
   padding: 10px 14px;
   border-left: 3px solid #2563eb;
@@ -2334,8 +2316,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   font-weight: 600;
   color: #2563eb;
 }
-
-/* Right column – accordion list */
 
 .faq-list {
   display: flex;
@@ -2384,7 +2364,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   transform: rotate(180deg);
 }
 
-/* Slide-open answer */
 .faq-answer-wrapper {
   max-height: 0;
   overflow: hidden;
@@ -2392,7 +2371,7 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
 }
 
 .faq-item.open .faq-answer-wrapper {
-  max-height: 200px; /* enough for most answers */
+  max-height: 200px;
 }
 
 .faq-answer {
@@ -2401,36 +2380,20 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   color: var(--text-muted);
 }
 
-/* Responsive */
-
 @media (max-width: 900px) {
   .faq-grid {
     grid-template-columns: minmax(0, 1fr);
   }
 }
 
-/* FAQ header logo */
-
-.faq-header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.faq-logo {
-  max-width: 320px;   /* adjust to taste */
-  width: 100%;
-  height: auto;
-  display: inline-block;
-}
-
-/* === Location / Map section === */
+/* ===========================
+   LOCATION / MAP SECTION
+   =========================== */
 
 .location-section {
   padding-top: 40px;
   padding-bottom: 40px;
 }
-
-/* Centered header */
 
 .location-header {
   text-align: center;
@@ -2446,16 +2409,12 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   margin-top: 4px;
 }
 
-/* Two equal cards */
-
 .location-cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
   align-items: stretch;
 }
-
-/* Base card style – same for both */
 
 .location-card {
   background: #ffffff;
@@ -2473,10 +2432,10 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.32);
 }
 
-/* Text card specifics */
-
 .location-card-text {
   gap: 8px;
+  animation: location-slide-left 0.1s ease-out;
+  animation-fill-mode: both;
 }
 
 .location-name {
@@ -2508,13 +2467,14 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
 }
 
 .location-btn {
-  margin-top: auto; /* pushes button to bottom for nice alignment */
+  margin-top: auto;
 }
 
-/* Map card specifics */
-
 .location-card-map {
-  padding: 0; /* map uses full area */
+  padding: 0;
+  animation: location-slide-right 0.1s ease-out;
+  animation-delay: 0.05s;
+  animation-fill-mode: both;
 }
 
 .location-map-inner {
@@ -2525,7 +2485,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   overflow: hidden;
 }
 
-/* Map fills the card */
 .location-map-inner iframe {
   position: absolute;
   inset: 0;
@@ -2535,14 +2494,11 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   display: block;
 }
 
-/* Clickable overlay so any click goes to Google Maps */
 .location-map-overlay {
   position: absolute;
   inset: 0;
   text-indent: -9999px;
 }
-
-/* Entrance animation */
 
 @keyframes location-pop {
   from {
@@ -2553,33 +2509,6 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
     opacity: 1;
     transform: translateY(0) scale(1);
   }
-}
-
-/* Responsive */
-
-@media (max-width: 900px) {
-  .location-cards {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .location-card {
-    min-height: 260px;
-  }
-}
-
-/* Left card: slide in from left */
-.location-card-text {
-  gap: 8px;
-  animation: location-slide-left 0.10s ease-out;
-  animation-fill-mode: both;
-}
-
-/* Right card: slide in from right */
-.location-card-map {
-  padding: 0;
-  animation: location-slide-right 0.10s ease-out;
-  animation-delay: 0.05s;
-  animation-fill-mode: both;
 }
 
 @keyframes location-slide-left {
@@ -2605,6 +2534,20 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
 }
 
 @media (max-width: 900px) {
+  .location-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .location-card {
+    min-height: 260px;
+  }
+}
+
+/* ===========================
+   RESPONSIVE TWEAKS FOR LOOPS
+   =========================== */
+
+@media (max-width: 900px) {
   .loan-services-section,
   .protection-services-section,
   .business-services-section {
@@ -2621,11 +2564,12 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
 }
 
 /* Mobile layout for scrolling service loops */
+
 @media (max-width: 640px) {
   .loan-loop-card,
   .protection-loop-card,
   .business-loop-card {
-    flex: 0 0 90vw;        /* card width ~90% of viewport */
+    flex: 0 0 90vw;
     flex-direction: column;
   }
 
@@ -2640,28 +2584,12 @@ flex: 0 0 320px;               /* was 360px – a bit narrower */
   .business-card-image img {
     width: 100%;
     height: auto;
-    object-fit: cover;     /* fill the area nicely */
+    object-fit: cover;
   }
 
   .loan-card-content,
   .protection-card-content,
   .business-card-content {
     padding: 14px 14px;
-  }
-}
-
-@media (max-width: 900px) {
-  .loan-services-section,
-  .protection-services-section,
-  .business-services-section {
-    width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .loan-loop-wrapper,
-  .protection-loop-wrapper,
-  .business-loop-wrapper {
-    width: 100%;
   }
 }
