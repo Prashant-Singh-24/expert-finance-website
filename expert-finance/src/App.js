@@ -11,6 +11,9 @@ import Insurance from "./pages/Insurance";
 import CalculatorPage from "./pages/CalculatorPage";
 import Contact from "./pages/Contact";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
+import PrivacyPage from "./pages/PrivacyPage";
+import DisclosurePage from "./pages/DisclosurePage";
+
 
 function App() {
   return (
@@ -26,6 +29,8 @@ function App() {
           <Route path="/insurance" element={<Insurance />} />
           <Route path="/calculator" element={<CalculatorPage />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/about/privacy" element={<PrivacyPage />} />
+          <Route path="/about/disclosure" element={<DisclosurePage />} />
         </Routes>
       </main>
       <Footer />

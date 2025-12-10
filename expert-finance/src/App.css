@@ -2777,3 +2777,63 @@ textarea {
     padding: 14px 14px;
   }
 }
+
+/* === Privacy page layout === */
+
+.privacy-body {
+  max-width: 860px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.privacy-body h2 {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.privacy-body h3 {
+  margin-top: 20px;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.privacy-body h4 {
+  margin-top: 16px;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+
+.privacy-body ul {
+  padding-left: 20px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+/* === Disclosure page layout === */
+
+.disclosure-body {
+  max-width: 860px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.disclosure-body h2 {
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.disclosure-body h3 {
+  margin-top: 20px;
+  margin-bottom: 6px;
+  font-size: 16px;
+}
+
+.disclosure-body ul {
+  padding-left: 20px;
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
