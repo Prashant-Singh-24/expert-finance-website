@@ -1961,7 +1961,7 @@ textarea {
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 28px;
+  gap: 34px;
   align-items: center;
   margin: 0;
   padding: 0;
@@ -1969,9 +1969,10 @@ textarea {
 
 .nav-links a,
 .nav-link {
-  font-size: 14px;
+  font-size: 15px;
   color: #111827;
   text-decoration: none;
+  letter-spacing: 0.02em;
 }
 
 .nav-links a.active {
@@ -2196,8 +2197,9 @@ textarea {
 
   .mobile-menu-list a {
     text-decoration: none;
-    font-size: 15px;
+    font-size: 16px;
     color: #111827;
+    padding: 6px;
   }
 
   .mobile-services-heading {
@@ -2216,8 +2218,10 @@ textarea {
   }
 
   .mobile-service-link {
-    font-size: 14px;
+    font-size: 15px;          
     padding-left: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;       
     display: block;
   }
 
