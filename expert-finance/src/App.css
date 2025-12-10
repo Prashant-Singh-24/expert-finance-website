@@ -2057,9 +2057,36 @@ textarea {
 /* Desktop dropdown panel */
 
 @media (min-width: 901px) {
-  .services-nav {
+  .services-nav, 
+  .about-nav {
     position: relative;
   }
+
+  .about-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.18);
+  padding: 10px 16px;
+  min-width: 180px;
+  z-index: 40;
+}
+
+.about-dropdown-link {
+  display: block;
+  font-size: 14px;
+  padding: 6px 2px;
+  color: #111827;
+  text-decoration: none;
+}
+
+.about-dropdown-link:hover {
+  color: #2563eb;
+}
+
 
   .services-dropdown {
     position: absolute;
@@ -2114,6 +2141,106 @@ textarea {
 .mobile-menu {
   display: none;            /* hidden on desktop by default */
 }
+
+/* === Mobile About Us dropdown === */
+
+.mobile-about-group {
+  margin-top: 6px;
+}
+
+.mobile-about-toggle {
+  width: 100%;
+  padding: 6px 0;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 400;     /* not bold */
+  color: #111827;
+  cursor: pointer;
+}
+
+.mobile-about-caret {
+  font-size: 11px;
+  transition: transform 0.2s ease;
+}
+
+.mobile-about-caret.open {
+  transform: rotate(180deg);
+}
+
+.mobile-about-panel {
+  margin-top: 4px;
+  padding-left: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-about-link {
+  font-size: 15px;
+  font-weight: 400;     /* not bold */
+  padding-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  text-decoration: none;
+  color: #111827;
+  display: block;
+}
+
+
+/* === Mobile Services dropdown === */
+
+.mobile-services-group {
+  margin-top: 6px;
+}
+
+.mobile-services-toggle {
+  width: 100%;
+  padding: 6px 0;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 16px;
+  font-weight: 400;
+  color: #111827;
+  cursor: pointer;
+}
+
+.mobile-services-caret {
+  font-size: 11px;
+  transition: transform 0.2s ease;
+}
+
+.mobile-services-caret.open {
+  transform: rotate(180deg);
+}
+
+.mobile-services-panel {
+  margin-top: 6px;
+  padding-left: 4px;
+}
+
+/* You can keep / reuse these (or similar) from your existing CSS */
+.mobile-service-group-title {
+  font-weight: 400;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.mobile-service-link {
+  font-size: 15px;
+  font-weight: 400;
+  padding-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  display: block;
+}
+
 
 /* Global mobile layout adjustments */
 @media (max-width: 900px) {
