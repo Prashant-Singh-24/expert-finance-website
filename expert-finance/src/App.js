@@ -13,6 +13,7 @@ import Contact from "./pages/Contact";
 import ServiceDetailPage from "./pages/ServiceDetailPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import DisclosurePage from "./pages/DisclosurePage";
+import CareersPage from "./pages/CareersPage";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about/privacy" element={<PrivacyPage />} />
           <Route path="/about/disclosure" element={<DisclosurePage />} />
+          <Route path="/about/careers" element={<CareersPage />} />
         </Routes>
       </main>
       <Footer />
