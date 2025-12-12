@@ -2837,3 +2837,10 @@ textarea {
   margin-top: 4px;
   margin-bottom: 10px;
 }
+
+.careers-body {
+  max-width: 860px;
+  margin: 0 auto;
+  font-size: 14px;
+  line-height: 1.7;
+}
