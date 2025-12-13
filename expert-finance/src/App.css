@@ -1315,6 +1315,233 @@ textarea {
   }
 }
 
+/* === Our Team: 3-column layout (Image | Contact | Bio) === */
+
+.team-owner-section {
+  padding-top: 28px;
+  padding-bottom: 40px;
+}
+
+.team-owner-3col {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.95fr) minmax(0, 1.35fr);
+  gap: 26px;
+  align-items: start;
+}
+
+/* 1) Image card */
+.team-owner-image-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  padding: 12px;
+  height: 560px;                /* gives the tall card like your screenshot */
+  display: flex;
+  align-items: flex-end;        /* no extra space at bottom */
+  justify-content: center;
+}
+
+.team-owner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;          /* keep transparent PNG clean */
+  object-position: bottom center;
+  display: block;
+}
+
+/* 2) Contact column */
+.team-owner-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 8px;
+}
+
+.team-name {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.team-role {
+  font-size: 14px;
+  color: var(--primary);
+  font-weight: 600;
+  margin-top: -10px;
+}
+
+.team-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.team-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #111827;
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.team-contact-link:hover {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.team-contact-link span {
+  word-break: break-word; /* prevents overflow on smaller widths */
+}
+
+/* Social row */
+.team-social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.team-social-btn {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 8px 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.team-social-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
+}
+
+.team-social-btn img {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  object-fit: cover;
+  display: block;
+}
+
+.team-social-btn span {
+  font-size: 12.5px;
+  color: #111827;
+}
+
+/* 3) Bio column */
+.team-owner-bio {
+  padding-top: 10px;
+}
+
+.team-owner-bio p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-muted);
+}
+
+.team-owner-bio p:last-child {
+  margin-bottom: 0;
+}
+
+/* === Responsive: stack nicely on mobile === */
+@media (max-width: 900px) {
+  .team-owner-3col {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .team-owner-image-card {
+    height: 420px;
+  }
+
+  .team-owner-contact {
+    padding-top: 0;
+  }
+}
+
+/* =========================
+   OUR TEAM: Desktop = 2 cols
+   Mobile stays same
+   ========================= */
+
+/* Desktop/tablet (>= 901px): 2-column layout */
+@media (min-width: 901px) {
+  .team-owner-3col {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.45fr);
+    grid-template-rows: auto 1fr; /* row1 = bio, row2 = contact at bottom */
+    gap: 28px;
+    align-items: start;
+  }
+
+  /* Image on the left spans both rows */
+  .team-owner-image-card {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    height: 500px;  
+    width: 600px;               /* rectangular look */
+    padding: 14px;
+    align-items: flex-end;          /* no bottom whitespace */
+    justify-content: center;
+  }
+
+  .team-owner-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom center; /* sit on the bottom */
+    display: block;
+  }
+
+  /* Bio on top-right */
+  .team-owner-bio {
+    grid-column: 2;
+    grid-row: 1;
+    padding-top: 8px;
+  }
+
+  /* Contact + socials bottom-right */
+  .team-owner-contact {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: end;               /* pushes it to the bottom */
+    padding-top: 0;
+  }
+}
+
+/* Mobile (<= 900px): keep your current stacked layout exactly */
+@media (max-width: 900px) {
+  .team-owner-3col {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: unset;
+  }
+
+  .team-owner-image-card {
+    height: 420px;                 /* your current mobile height */
+  }
+}
+
+/* spacing between team members */
+.team-member-block {
+  margin-top: 36px;
+}
+
+@media (max-width: 900px) {
+  .team-member-block {
+    margin-top: 26px;
+  }
+}
+
+
 /* ===========================
    “Our Services” THREE-CARD
    =========================== */

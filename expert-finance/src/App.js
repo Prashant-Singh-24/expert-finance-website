@@ -14,7 +14,7 @@ import ServiceDetailPage from "./pages/ServiceDetailPage";
 import PrivacyPage from "./pages/PrivacyPage";
 import DisclosurePage from "./pages/DisclosurePage";
 import CareersPage from "./pages/CareersPage";
-
+import OurTeamPage from "./pages/OurTeamPage";
 
 function App() {
   return (
@@ -33,6 +33,7 @@ function App() {
           <Route path="/about/privacy" element={<PrivacyPage />} />
           <Route path="/about/disclosure" element={<DisclosurePage />} />
           <Route path="/about/careers" element={<CareersPage />} />
+          <Route path="/about/team" element={<OurTeamPage />} />
         </Routes>
       </main>
       <Footer />
