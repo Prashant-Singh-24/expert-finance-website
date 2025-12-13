@@ -3071,3 +3071,685 @@ textarea {
   font-size: 14px;
   line-height: 1.7;
 }
+
+/* =========================
+   CALCULATOR PAGE
+   ========================= */
+
+.calc-page {
+  padding-top: 26px;
+  padding-bottom: 44px;
+}
+
+.calc-actions {
+  margin-top: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.calc-actions-note {
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.calc-btn {
+  border: none;
+  cursor: pointer;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 13px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+}
+
+.calc-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.calc-btn-primary {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: var(--white);
+  box-shadow: 0 14px 30px rgba(0, 82, 204, 0.25);
+}
+
+.calc-btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 36px rgba(0, 82, 204, 0.32);
+}
+
+/* Grid that adapts to number of scenarios */
+.calc-grid {
+  margin-top: 18px;
+  display: grid;
+  gap: 18px;
+}
+
+.calc-grid-1 {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.calc-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.calc-grid-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 1100px) {
+  .calc-grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .calc-grid-2,
+  .calc-grid-3 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Scenario card */
+.calc-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.calc-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+.calc-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 14px 10px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 82, 204, 0.05),
+    rgba(0, 163, 255, 0.04)
+  );
+}
+
+.calc-scenario-name {
+  width: 100%;
+  max-width: 220px;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 12px;
+  padding: 8px 10px;
+  font-size: 13px;
+  outline: none;
+  background: #fff;
+}
+
+.calc-scenario-name:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.12);
+}
+
+.calc-card-tools {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.calc-chip {
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 999px;
+  padding: 7px 10px;
+  font-size: 12.5px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.calc-chip:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 20px rgba(15, 23, 42, 0.10);
+}
+
+.calc-chip:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.calc-chip.danger {
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+.calc-form {
+  padding: 14px;
+}
+
+/* Inputs */
+.calc-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .calc-form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.calc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.calc-field-label {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.calc-field-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.calc-input {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  padding: 9px 10px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.12s ease;
+  background: #fff;
+}
+
+.calc-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.12);
+  transform: translateY(-1px);
+}
+
+/* Results */
+.calc-results {
+  margin-top: 12px;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 82, 204, 0.06),
+    rgba(0, 163, 255, 0.03)
+  );
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  padding: 12px;
+}
+
+.calc-results-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 760px) {
+  .calc-results-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.calc-stat {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+  border-radius: 14px;
+  padding: 10px 10px;
+  transition: transform 0.15s ease;
+}
+
+.calc-stat:hover {
+  transform: translateY(-1px);
+}
+
+.calc-stat-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.calc-hint {
+  font-size: 12px;
+  opacity: 0.75;
+  cursor: help;
+}
+
+.calc-stat-value {
+  margin-top: 4px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.calc-preview {
+  margin-top: 12px;
+  text-align: left;
+}
+
+.calc-preview-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 8px;
+}
+
+/* Mini table */
+.calc-table {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.calc-row {
+  display: grid;
+  grid-template-columns: 0.8fr 1.1fr 1.1fr 1.1fr 1.2fr;
+  gap: 8px;
+  padding: 10px 10px;
+  font-size: 12.5px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.calc-row.head {
+  background: rgba(0, 82, 204, 0.08);
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.calc-row.final {
+  background: rgba(15, 23, 42, 0.03);
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .calc-row {
+    grid-template-columns: 0.8fr 1fr 1fr;
+  }
+  .calc-row > :nth-child(4),
+  .calc-row > :nth-child(5) {
+    display: none; /* hide principal + balance on tiny screens */
+  }
+}
+
+.calc-disclaimer {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Calculator: full-width calculate button */
+.calc-btn-full { 
+  width: 100%; 
+  margin-top: 12px; 
+}
+.calc-empty { 
+  margin-top: 12px; 
+  font-size: 14px; 
+  color: var(--text-muted); 
+}
+
+/* =========================
+   CONTACT PAGE (Redesign)
+   ========================= */
+
+.contact-page {
+  width: 100%;
+}
+
+/* Hero */
+.contact-hero {
+  width: 100%;
+  padding: 110px 16px 46px;
+  background:
+    radial-gradient(900px 260px at 20% 10%, rgba(37, 99, 235, 0.22), transparent 60%),
+    radial-gradient(700px 220px at 80% 20%, rgba(0, 163, 255, 0.18), transparent 55%),
+    #f5f7fb;
+}
+
+.contact-hero-inner {
+  max-width: 980px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-kicker {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 10px;
+}
+
+.contact-title {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 3.2vw, 40px);
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.contact-subtitle {
+  margin: 0 auto;
+  max-width: 720px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Layout */
+.contact-wrap {
+  width: 100%;
+  padding: 26px 16px 48px;
+}
+
+.contact-grid {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.95fr);
+  gap: 22px;
+  align-items: start;
+}
+
+/* Cards */
+.contact-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.contact-card-form {
+  padding: 18px 18px 16px;
+}
+
+.contact-card-header h2 {
+  margin: 0 0 4px;
+  font-size: 18px;
+  font-weight: 800;
+  color: #0f172a;
+}
+.contact-card-header p {
+  margin: 0 0 14px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Alerts */
+.contact-alert {
+  margin: 10px 0 12px;
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-size: 13px;
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+.contact-alert.success {
+  background: rgba(34, 197, 94, 0.08);
+  border-color: rgba(34, 197, 94, 0.25);
+}
+.contact-alert.error {
+  background: rgba(239, 68, 68, 0.08);
+  border-color: rgba(239, 68, 68, 0.25);
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.contact-field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #0f172a;
+}
+
+.contact-field input,
+.contact-field select,
+.contact-field textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #d1d9ec;
+  padding: 10px 12px;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+  font-family: inherit;
+  background: #ffffff;
+}
+
+.contact-field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-field input:focus,
+.contact-field select:focus,
+.contact-field textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.12);
+}
+
+.contact-field input.invalid,
+.contact-field textarea.invalid {
+  border-color: rgba(239, 68, 68, 0.65);
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.12);
+}
+
+.contact-error {
+  margin-top: 6px;
+  font-size: 12px;
+  color: rgba(239, 68, 68, 0.95);
+}
+
+/* Mini note */
+.contact-field-note {
+  display: flex;
+  align-items: end;
+}
+.contact-mini {
+  width: 100%;
+  border-radius: 14px;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  background: rgba(37, 99, 235, 0.06);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  color: #0f172a;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-mini-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
+}
+
+/* Consent */
+.contact-consent {
+  margin-top: 2px;
+}
+.contact-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: #111827;
+  line-height: 1.4;
+}
+.contact-check input {
+  margin-top: 3px;
+}
+.contact-check.invalid span {
+  color: rgba(239, 68, 68, 0.95);
+}
+
+/* Buttons */
+.contact-submit {
+  margin-top: 4px;
+  border: none;
+  border-radius: 999px;
+  padding: 11px 18px;
+  font-weight: 700;
+  font-size: 13px;
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+}
+.contact-submit:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+  box-shadow: 0 20px 55px rgba(37, 99, 235, 0.42);
+}
+
+/* Side column */
+.contact-side {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-card-info {
+  padding: 16px 16px 14px;
+}
+
+.contact-card-info h2 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0f172a;
+}
+
+.contact-info-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.contact-info-line {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  color: #111827;
+  text-decoration: none;
+}
+.contact-info-line:hover {
+  color: var(--primary);
+}
+
+.contact-ico {
+  width: 20px;
+  text-align: center;
+  flex: 0 0 20px;
+}
+
+.contact-map-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 700;
+  font-size: 13px;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  box-shadow: 0 16px 40px rgba(37, 99, 235, 0.35);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+.contact-map-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+/* Map card */
+.contact-card-map {
+  padding: 0;
+  overflow: hidden;
+}
+
+.contact-map-frame {
+  position: relative;
+  width: 100%;
+  height: 320px;
+}
+
+.contact-map-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.contact-map-overlay {
+  position: absolute;
+  inset: 0;
+  text-indent: -9999px;
+}
+
+/* Simple entrance animations */
+.contact-animate-left {
+  animation: contactSlideLeft 0.35s ease both;
+}
+.contact-animate-right {
+  animation: contactSlideRight 0.35s ease both;
+  animation-delay: 0.06s;
+}
+@keyframes contactSlideLeft {
+  from { opacity: 0; transform: translateX(-22px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes contactSlideRight {
+  from { opacity: 0; transform: translateX(22px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .contact-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .contact-hero {
+    padding: 96px 16px 34px;
+  }
+  .contact-map-frame {
+    height: 280px;
+  }
+}
+
