@@ -16,6 +16,7 @@ import DisclosurePage from "./pages/DisclosurePage";
 import CareersPage from "./pages/CareersPage";
 import OurTeamPage from "./pages/OurTeamPage";
 
+
 function App() {
   return (
     <div className="app">
@@ -34,6 +35,7 @@ function App() {
           <Route path="/about/disclosure" element={<DisclosurePage />} />
           <Route path="/about/careers" element={<CareersPage />} />
           <Route path="/about/team" element={<OurTeamPage />} />
+          
         </Routes>
       </main>
       <Footer />

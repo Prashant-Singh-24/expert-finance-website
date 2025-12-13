@@ -184,11 +184,7 @@ function Navbar() {
               )}
             </li>
 
-            <li>
-              <NavLink to="/insurance" onClick={closeAll}>
-                Insurance
-              </NavLink>
-            </li>
+            
             <li>
               <NavLink to="/calculator" onClick={closeAll}>
                 Calculator
@@ -340,11 +336,7 @@ function Navbar() {
             </li>
 
             {/* 4. REST */}
-            <li>
-              <NavLink to="/insurance" onClick={closeAll}>
-                Insurance
-              </NavLink>
-            </li>
+            
             <li>
               <NavLink to="/calculator" onClick={closeAll}>
                 Calculator
